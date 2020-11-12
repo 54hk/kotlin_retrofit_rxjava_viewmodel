@@ -1,25 +1,50 @@
 package com.hk.com_ans_student.base
 
-import android.content.Context
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.hk.com_ans_student.R
-import com.hk.com_ans_student.utils.ToastUtil
+import android.view.LayoutInflater
+import android.view.View
+import androidx.appcompat.app.AppCompatActivity
+import com.hk.com_ans_student.R.layout.activity_base
+import kotlinx.android.synthetic.main.activity_base.*
 
-class BaseActivity : AppCompatActivity() {
+abstract class BaseActivity : AppCompatActivity() {
 
     companion object {
-        fun getIntance(context: Context, name: String?): Unit {
-            val intent = Intent(context, BaseActivity::class.java)
-            intent.putExtra("name", name)
-            context.startActivity(intent)
-        }
+        lateinit var activity: AppCompatActivity
     }
-
+    private lateinit var view: View
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_base)
-        ToastUtil.showLongToast(intent.extras?.getString("name"))
+        setContentView(activity_base)
+        activity = this
+        view = LayoutInflater.from(this).inflate(setLayoutId(), null)
+        fl_base_content.addView(view)
+        initView()
+        initData()
+        wingetListener()
+        onObserve()
     }
+
+    /**
+     * 设置布局
+     * @return Int
+     */
+    abstract fun setLayoutId(): Int
+
+    /**
+     * 初始化布局
+     */
+    abstract fun initView()
+
+    /**
+     * 初始化数据
+     */
+    abstract fun initData()
+
+    /**
+     * 初始化监听
+     */
+    abstract fun wingetListener()
+
+   open fun onObserve() {}
 }

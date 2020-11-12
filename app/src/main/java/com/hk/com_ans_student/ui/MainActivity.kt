@@ -15,27 +15,31 @@ import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
 
     private lateinit var homeViewModel: HomeViewModel;
 
-    companion object {
-        lateinit var activity: AppCompatActivity
-        lateinit var context: Context
+
+    override fun setLayoutId(): Int {
+        return R.layout.activity_main
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        context = this
-        activity = this
+    override fun initView() {
+
         homeViewModel = ViewModelProviders.of(this).get(HomeViewModel::class.java)
+
+    }
+
+    override fun initData() {}
+
+    override fun wingetListener() {
         but_net.click {
-
             homeViewModel.loadJokeData()
-
         }
+    }
 
+    override fun onObserve() {
+        super.onObserve()
         homeViewModel.funcaiton.observe(this, Observer {
             logE("funcaiton  change")
         })

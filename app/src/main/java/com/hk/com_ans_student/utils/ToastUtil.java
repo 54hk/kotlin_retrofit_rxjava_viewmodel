@@ -4,7 +4,7 @@ import android.os.Looper;
 import android.view.Gravity;
 import android.widget.Toast;
 
-import com.hk.com_ans_student.ui.MainActivity;
+import com.hk.com_ans_student.base.BaseActivity;
 
 public class ToastUtil {
 
@@ -17,10 +17,10 @@ public class ToastUtil {
      * @param msg 显示的内容-字符串
      */
     public static void showShortToast(String msg) {
-        if (MainActivity.activity != null) {
+        if (BaseActivity.activity != null) {
             try {
                 if (toast == null) {
-                    toast = Toast.makeText(MainActivity.activity, msg, Toast.LENGTH_SHORT);
+                    toast = Toast.makeText(BaseActivity.activity, msg, Toast.LENGTH_SHORT);
                 } else {
                     toast.setText(msg);
                 }
@@ -28,7 +28,7 @@ public class ToastUtil {
             } catch (Exception e) {
                 //解决在子线程中调用Toast的异常情况处理
                 Looper.prepare();
-                Toast.makeText(MainActivity.activity, msg, Toast.LENGTH_SHORT).show();
+                Toast.makeText(BaseActivity.activity, msg, Toast.LENGTH_SHORT).show();
                 Looper.loop();
             }
 
@@ -41,10 +41,10 @@ public class ToastUtil {
      * @param msg 显示的内容-字符串
      */
     public static void showShortToastCenter(String msg) {
-        if (MainActivity.activity != null) {
+        if (BaseActivity.activity != null) {
             try {
                 if (toast == null) {
-                    toast = Toast.makeText(MainActivity.activity, msg, Toast.LENGTH_SHORT);
+                    toast = Toast.makeText(BaseActivity.activity, msg, Toast.LENGTH_SHORT);
                     toast.setGravity(Gravity.CENTER, 0, 0);
                 } else {
                     toast.setText(msg);
@@ -53,7 +53,7 @@ public class ToastUtil {
             } catch (Exception e) {
                 //解决在子线程中调用Toast的异常情况处理
                 Looper.prepare();
-                Toast.makeText(MainActivity.activity, msg, Toast.LENGTH_SHORT).show();;
+                Toast.makeText(BaseActivity.activity, msg, Toast.LENGTH_SHORT).show();;
                 Looper.loop();
             }
 
@@ -66,10 +66,10 @@ public class ToastUtil {
      * @param msg 显示的内容-字符串
      */
     public static void showShortToastTop(String msg) {
-        if (MainActivity.activity != null) {
+        if (BaseActivity.activity != null) {
             try {
                 if (toast == null) {
-                    toast = Toast.makeText(MainActivity.activity, msg, Toast.LENGTH_SHORT);
+                    toast = Toast.makeText(BaseActivity.activity, msg, Toast.LENGTH_SHORT);
                     toast.setGravity(Gravity.TOP, 0, 0);
                 } else {
                     toast.setText(msg);
@@ -77,7 +77,7 @@ public class ToastUtil {
                 toast.show();
             } catch (Exception e) {
                 Looper.prepare();
-                Toast.makeText(MainActivity.activity, msg, Toast.LENGTH_SHORT).show();;
+                Toast.makeText(BaseActivity.activity, msg, Toast.LENGTH_SHORT).show();;
                 Looper.loop();
             }
 
@@ -91,19 +91,19 @@ public class ToastUtil {
      * @param msg 显示的内容-字符串
      */
     public static void showLongToast(String msg) {
-        if (MainActivity.activity != null) {
+        if (BaseActivity.activity != null) {
             try {
 
 
                 if (toast == null) {
-                    toast = Toast.makeText(MainActivity.activity, msg, Toast.LENGTH_LONG);
+                    toast = Toast.makeText(BaseActivity.activity, msg, Toast.LENGTH_LONG);
                 } else {
                     toast.setText(msg);
                 }
                 toast.show();
             } catch (Exception e) {
                 Looper.prepare();
-                Toast.makeText(MainActivity.activity, msg, Toast.LENGTH_SHORT).show();;
+                Toast.makeText(BaseActivity.activity, msg, Toast.LENGTH_SHORT).show();;
                 Looper.loop();
             }
         }
@@ -115,12 +115,12 @@ public class ToastUtil {
      * @param msg 显示的内容-字符串
      */
     public static void showLongToastCenter(String msg) {
-        if (MainActivity.activity != null) {
+        if (BaseActivity.activity != null) {
             try {
 
 
                 if (toast == null) {
-                    toast = Toast.makeText(MainActivity.activity, msg, Toast.LENGTH_LONG);
+                    toast = Toast.makeText(BaseActivity.activity, msg, Toast.LENGTH_LONG);
                     toast.setGravity(Gravity.CENTER, 0, 0);
                 } else {
                     toast.setText(msg);
@@ -128,7 +128,7 @@ public class ToastUtil {
                 toast.show();
             } catch (Exception e) {
                 Looper.prepare();
-                Toast.makeText(MainActivity.activity, msg, Toast.LENGTH_SHORT).show();;
+                Toast.makeText(BaseActivity.activity, msg, Toast.LENGTH_SHORT).show();;
                 Looper.loop();
             }
         }
@@ -140,12 +140,12 @@ public class ToastUtil {
      * @param msg 显示的内容-字符串
      */
     public static void showLongToastTop(String msg) {
-        if (MainActivity.activity != null) {
+        if (BaseActivity.activity != null) {
             try {
 
 
                 if (toast == null) {
-                    toast = Toast.makeText(MainActivity.activity, msg, Toast.LENGTH_LONG);
+                    toast = Toast.makeText(BaseActivity.activity, msg, Toast.LENGTH_LONG);
                     toast.setGravity(Gravity.TOP, 0, 0);
                 } else {
                     toast.setText(msg);
@@ -153,7 +153,7 @@ public class ToastUtil {
                 toast.show();
             } catch (Exception e) {
                 Looper.prepare();
-                Toast.makeText(MainActivity.activity, msg, Toast.LENGTH_SHORT).show();;
+                Toast.makeText(BaseActivity.activity, msg, Toast.LENGTH_SHORT).show();;
                 Looper.loop();
             }
         }

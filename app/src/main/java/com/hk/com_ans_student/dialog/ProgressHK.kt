@@ -1,6 +1,6 @@
 package com.hk.com_ans_student.dialog
 
-import com.hk.com_ans_student.ui.MainActivity
+import com.hk.com_ans_student.base.BaseActivity
 import com.kaopiz.kprogresshud.KProgressHUD
 
 /**
@@ -10,7 +10,7 @@ class ProgressHK {
     companion object{
 
         fun show():KProgressHUD{
-            return KProgressHUD.create(MainActivity.context)
+            return KProgressHUD.create(BaseActivity.activity)
                 .setStyle(KProgressHUD.Style.SPIN_INDETERMINATE) // SPIN_INDETERMINATE, PIE_DETERMINATE, ANNULAR_DETERMINATE, BAR_DETERMINATE
                 .setCancellable(false)
                 .setDimAmount(0.5f)
@@ -21,7 +21,7 @@ class ProgressHK {
          * tip: 提示标题
          */
         fun show(tip:String):KProgressHUD{
-            return KProgressHUD.create(MainActivity.context)
+            return KProgressHUD.create(BaseActivity.activity)
                 .setStyle(KProgressHUD.Style.SPIN_INDETERMINATE)
                 .setLabel(tip)
                 .setCancellable(false)
